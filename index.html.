@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chúc Mừng Mẹ 20/10</title>
+    <style>
+        body {
+            background-color: pink;
+            color: red;
+            font-family: 'Dancing Script', cursive;
+            text-align: center;
+            padding: 50px;
+        }
+        h1 {
+            font-size: 3em;
+            margin-bottom: 20px;
+        }
+        p {
+            font-size: 1.5em;
+        }
+        .hearts {
+            position: relative;
+            display: inline-block;
+        }
+        .heart {
+            width: 50px;
+            height: 50px;
+            background-color: red;
+            position: absolute;
+            animation: float 4s infinite;
+            border-radius: 50% 50% 0 0;
+            transform: rotate(-45deg);
+        }
+        .heart:before, .heart:after {
+            content: "";
+            width: 50px;
+            height: 50px;
+            background-color: red;
+            border-radius: 50%;
+            position: absolute;
+        }
+        .heart:before {
+            top: -25px;
+            left: 0;
+        }
+        .heart:after {
+            left: 25px;
+            top: 0;
+        }
+        @keyframes float {
+            0% { transform: translateY(0); }
+            50% { transform: translateY(-20px); }
+            100% { transform: translateY(0); }
+        }
+
+        /* Hộp quà */
+        .gift-box {
+            margin: 50px auto;
+            width: 150px;
+            height: 150px;
+            background-color: red;
+            position: relative;
+            cursor: pointer;
+        }
+        .gift-box:before, .gift-box:after {
+            content: "";
+            position: absolute;
+            background-color: pink;
+        }
+        .gift-box:before {
+            width: 150px;
+            height: 20px;
+            top: 65px;
+            left: 0;
+        }
+        .gift-box:after {
+            width: 20px;
+            height: 150px;
+            top: 0;
+            left: 65px;
+        }
+        .lid {
+            width: 150px;
+            height: 50px;
+            background-color: pink;
+            position: absolute;
+            top: -50px;
+            left: 0;
+            transition: all 0.5s;
+        }
+        .message {
+            display: none;
+            margin-top: 20px;
+            font-size: 2em;
+            color: red;
+        }
+        .open .lid {
+            transform: rotateX(90deg);
+        }
+        .open .message {
+            display: block;
+        }
+    </style>
+</head>
+<body>
+    <h1>Chúc Mừng Mẹ 20/10</h1>
+    <div class="hearts">
+        <div class="heart" style="top: 50px; left: 100px;"></div>
+        <div class="heart" style="top: 150px; left: 200px;"></div>
+        <div class="heart" style="top: 250px; left: 300px;"></div>
+    </div>
+    <p>Mẹ yêu, con chúc mẹ một ngày 20/10 thật hạnh phúc và tràn đầy yêu thương!</p>
+
+    <!-- Hộp quà -->
+    <div class="gift-box" onclick="openGift()">
+        <div class="lid"></div>
+    </div>
+    <div class="message" id="message">Con yêu mẹ!</div>
+
+    <script>
+        function openGift() {
+            const giftBox = document.querySelector('.gift-box');
+            giftBox.classList.toggle('open');
+        }
+    </script>
+</body>
+</html>
